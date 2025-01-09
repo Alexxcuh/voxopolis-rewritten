@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0dgpm7s8s2wi"]
 
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://fonts/Fonts/Quicksand.ttf" id="1_23vcx"]
+[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_hu446"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt4v4"]
 bg_color = Color(0.048, 0.48, 0.1416, 1)
@@ -38,7 +38,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0.449, 1, 0.43, 1)
 theme_override_colors/font_outline_color = Color(0.0745098, 0.301961, 0.027451, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("1_23vcx")
+theme_override_fonts/font = ExtResource("1_hu446")
 theme_override_styles/background = SubResource("StyleBoxFlat_vt4v4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f05xr")
 value = 50.0
