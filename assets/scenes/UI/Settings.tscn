@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jhr48h5ywk6q"]
+
+[node name="TabContainer" type="TabContainer"]
+anchors_preset = -1
+anchor_right = 0.993
+anchor_bottom = 0.988
+offset_left = 64.0
+offset_top = 32.0
+offset_right = -55.9359
+offset_bottom = -61.224
+current_tab = 0
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Settings2" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1

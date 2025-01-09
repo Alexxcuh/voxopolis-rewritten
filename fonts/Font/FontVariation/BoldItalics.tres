@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c60mjf2s87ncc"]
+
+[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://addons/BopimoTheme/Resources/Font/Quicksand.ttf" id="1_thf1g"]
+
+[resource]
+base_font = ExtResource("1_thf1g")
+variation_embolden = 0.9
+variation_transform = Transform2D(0.95, 0.4, 0, 1, 0, 0)
