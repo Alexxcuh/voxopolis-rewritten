@@ -1,7 +1,0 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bqmsjchh08j4e"]
-
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://addons/BopimoTheme/Resources/Font/Quicksand.ttf" id="1_fwwrh"]
-
-[resource]
-base_font = ExtResource("1_fwwrh")
-variation_transform = Transform2D(1, 0.4, 0, 1, 0, 0)

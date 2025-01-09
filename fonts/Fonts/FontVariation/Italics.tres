@@ -1,7 +1,7 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bqmsjchh08j4e"]
 
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://addons/BopimoTheme/Resources/Fonts/Quicksand.ttf" id="1_fwwrh"]
+[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_36yoy"]
 
 [resource]
-base_font = ExtResource("1_fwwrh")
+base_font = ExtResource("1_36yoy")
 variation_transform = Transform2D(1, 0.4, 0, 1, 0, 0)

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=15 format=3 uid="uid://c2kchxms4jra"]
 
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://fonts/Fonts/Quicksand.ttf" id="1_ktn7s"]
+[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_g6u6j"]
 [ext_resource type="FontVariation" uid="uid://7y0heevchlo1" path="res://fonts/Fonts/FontVariation/Bold.tres" id="2_u2i30"]
 [ext_resource type="FontVariation" uid="uid://c60mjf2s87ncc" path="res://fonts/Fonts/FontVariation/BoldItalics.tres" id="3_ybxc8"]
 [ext_resource type="FontVariation" uid="uid://bqmsjchh08j4e" path="res://fonts/Fonts/FontVariation/Italics.tres" id="4_b2c5u"]
@@ -118,7 +118,7 @@ corner_radius_bottom_left = 15
 expand_margin_left = 5.0
 
 [resource]
-LineEdit/fonts/font = ExtResource("1_ktn7s")
+LineEdit/fonts/font = ExtResource("1_g6u6j")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_6dsr5")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_6dsr5")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_6dsr5")
@@ -140,10 +140,11 @@ RichTextLabel/font_sizes/normal_font_size = 15
 RichTextLabel/fonts/bold_font = ExtResource("2_u2i30")
 RichTextLabel/fonts/bold_italics_font = ExtResource("3_ybxc8")
 RichTextLabel/fonts/italics_font = ExtResource("4_b2c5u")
-RichTextLabel/fonts/mono_font = ExtResource("1_ktn7s")
-RichTextLabel/fonts/normal_font = ExtResource("1_ktn7s")
+RichTextLabel/fonts/mono_font = ExtResource("1_g6u6j")
+RichTextLabel/fonts/normal_font = ExtResource("1_g6u6j")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_1n074")
 TabContainer/constants/side_margin = 10
+TabContainer/fonts/font = ExtResource("1_g6u6j")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_d7bq4")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_1vb4q")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_65h8t")

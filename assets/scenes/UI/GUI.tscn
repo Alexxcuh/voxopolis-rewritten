@@ -69,10 +69,8 @@ stretch_mode = 3
 
 [node name="Chat" parent="mewing" instance=ExtResource("2_26jhu")]
 layout_mode = 1
-offset_left = -0.119999
-offset_top = 0.128001
-offset_right = 442.88
-offset_bottom = 246.128
+offset_right = 438.936
+offset_bottom = 248.224
 theme = null
 
 [node name="Health" parent="mewing" instance=ExtResource("3_fpbhv")]
@@ -86,8 +84,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 35.0
 offset_top = 40.0
-offset_right = -64.0
+offset_right = -29.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2

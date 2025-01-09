@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cfgp11vctfx88"
-path="res://.godot/imported/Quicksand.ttf-c3da2bc6e876659ce10ec3f61f6c7c9a.fontdata"
+uid="uid://cow8m07piutd5"
+path="res://.godot/imported/Fredoka.ttf-8da6a683d0f8993252c5d648394e2447.fontdata"
 
 [deps]
 
-source_file="res://fonts/Font/Quicksand.ttf"
-dest_files=["res://.godot/imported/Quicksand.ttf-c3da2bc6e876659ce10ec3f61f6c7c9a.fontdata"]
+source_file="res://fonts/Fonts/Fredoka.ttf"
+dest_files=["res://.godot/imported/Fredoka.ttf-8da6a683d0f8993252c5d648394e2447.fontdata"]
 
 [params]
 

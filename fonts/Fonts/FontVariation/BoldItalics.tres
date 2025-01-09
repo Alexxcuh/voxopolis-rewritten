@@ -1,8 +1,8 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c60mjf2s87ncc"]
 
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://addons/BopimoTheme/Resources/Fonts/Quicksand.ttf" id="1_thf1g"]
+[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_bn8lb"]
 
 [resource]
-base_font = ExtResource("1_thf1g")
+base_font = ExtResource("1_bn8lb")
 variation_embolden = 0.9
 variation_transform = Transform2D(0.95, 0.4, 0, 1, 0, 0)
