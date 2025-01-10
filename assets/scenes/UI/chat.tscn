@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpcf48ebw7sgv"]
+[gd_scene load_steps=10 format=3 uid="uid://cpcf48ebw7sgv"]
 
-[ext_resource type="FontFile" uid="uid://cfgp11vctfx88" path="res://fonts/Fonts/Quicksand.ttf" id="1_c17yg"]
 [ext_resource type="FontVariation" uid="uid://7y0heevchlo1" path="res://fonts/Fonts/FontVariation/Bold.tres" id="2_bjcev"]
 [ext_resource type="FontVariation" uid="uid://c60mjf2s87ncc" path="res://fonts/Fonts/FontVariation/BoldItalics.tres" id="3_4gl6b"]
 [ext_resource type="FontVariation" uid="uid://bqmsjchh08j4e" path="res://fonts/Fonts/FontVariation/Italics.tres" id="4_23utj"]
@@ -46,7 +45,7 @@ corner_radius_bottom_left = 15
 expand_margin_left = 5.0
 
 [sub_resource type="Theme" id="Theme_qft1i"]
-LineEdit/fonts/font = ExtResource("1_c17yg")
+LineEdit/fonts/font = null
 LineEdit/styles/focus = SubResource("StyleBoxFlat_6dsr5")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_6dsr5")
 LineEdit/styles/read_only = SubResource("StyleBoxFlat_6dsr5")
@@ -68,8 +67,8 @@ RichTextLabel/font_sizes/normal_font_size = 15
 RichTextLabel/fonts/bold_font = ExtResource("2_bjcev")
 RichTextLabel/fonts/bold_italics_font = ExtResource("3_4gl6b")
 RichTextLabel/fonts/italics_font = ExtResource("4_23utj")
-RichTextLabel/fonts/mono_font = ExtResource("1_c17yg")
-RichTextLabel/fonts/normal_font = ExtResource("1_c17yg")
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_1n074")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_3b0j8")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_im63q")

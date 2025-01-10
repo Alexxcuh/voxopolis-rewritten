@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bxkwa81nu32hm"]
+[gd_scene load_steps=31 format=4 uid="uid://bxkwa81nu32hm"]
 
 [ext_resource type="Script" path="res://assets/scripts/PlayerController.cs" id="1_q330e"]
 [ext_resource type="Texture2D" uid="uid://cmhqm6m1bjtxp" path="res://assets/models/textures/asdasd (1)_Untitled.png" id="2_bgx00"]
@@ -995,6 +995,9 @@ _data = {
 "walk": SubResource("Animation_yqa1e")
 }
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_te1g6"]
+size = Vector3(3, 5.5, 1)
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_q330e")
 
@@ -1077,3 +1080,7 @@ playback_default_blend_time = 0.45
 stream = ExtResource("4_bq4n0")
 volume_db = -50.762
 parameters/looping = true
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.625, 0)
+occluder = SubResource("BoxOccluder3D_te1g6")
