@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlo6qnxn0fvux"]
+[gd_scene load_steps=14 format=3 uid="uid://dlo6qnxn0fvux"]
 
 [ext_resource type="Script" path="res://assets/scripts/DayNight.cs" id="1_lrdoq"]
 [ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_1qykd"]
 [ext_resource type="PackedScene" uid="uid://bxkwa81nu32hm" path="res://assets/scenes/Player.tscn" id="3_5us51"]
+[ext_resource type="PackedScene" uid="uid://cyys8piee3k8q" path="res://assets/models/animations.tscn" id="4_sv6kt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vrhta"]
 
@@ -27,7 +28,7 @@ shader_parameter/day_top_color = Color(0.4472, 0.7568, 0.86, 1)
 shader_parameter/day_bottom_color = Color(0.447059, 0.756863, 0.858824, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
-shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_top_color = Color(0.19525, 0.0675, 0.25, 1)
 shader_parameter/night_bottom_color = Color(0.0114168, 1.25381e-05, 0.0376784, 1)
 shader_parameter/horizon_color = Color(0, 0, 0, 1)
 shader_parameter/horizon_blur = 1.0
@@ -76,7 +77,7 @@ shape = SubResource("BoxShape3D_8fu4h")
 occluder = SubResource("BoxOccluder3D_x2doo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.490858, 0.871239, 0, -0.871239, 0.490858, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, -0.0105239, 0.999944, 0, -0.999944, -0.0105239, 0, 2, 0)
 light_energy = 0.25
 shadow_enabled = true
 sky_mode = 2
@@ -94,3 +95,12 @@ environment = SubResource("Environment_j6426")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_5us51")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208527, 0.5, -7.42204)
+
+[node name="untitled" parent="." instance=ExtResource("4_sv6kt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.5, 10, 1)
+light_energy = 5.0
+spot_range = 155.625
+spot_angle_attenuation = 3.13834

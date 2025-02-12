@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dq616m07udorg"]
+[gd_scene load_steps=18 format=3 uid="uid://dq616m07udorg"]
 
 [ext_resource type="Texture2D" uid="uid://fpch1mnd73nt" path="res://cursors/lock.png" id="1_aqsdj"]
 [ext_resource type="PackedScene" uid="uid://cpcf48ebw7sgv" path="res://assets/scenes/UI/chat.tscn" id="2_26jhu"]
 [ext_resource type="PackedScene" uid="uid://d0dgpm7s8s2wi" path="res://assets/scenes/UI/health.tscn" id="3_fpbhv"]
 [ext_resource type="Theme" uid="uid://c2kchxms4jra" path="res://assets/voxopolis_theme.tres" id="3_o0h0l"]
 [ext_resource type="PackedScene" uid="uid://jhr48h5ywk6q" path="res://assets/scenes/UI/Settings.tscn" id="5_mpkw1"]
+[ext_resource type="PackedScene" uid="uid://8yxaauyck80c" path="res://assets/scenes/UI/emote.tscn" id="6_68xjt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mao51"]
 
@@ -90,3 +91,16 @@ offset_right = -29.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Emote" parent="mewing" instance=ExtResource("6_68xjt")]
+visible = false
+layout_mode = 1
+anchor_left = 0.493
+anchor_top = 0.481
+anchor_right = 0.507
+anchor_bottom = 0.5
+offset_left = -191.936
+offset_top = -191.688
+offset_right = 191.936
+offset_bottom = 196.0
+grow_vertical = 1

@@ -6,21 +6,24 @@ using System.Text.RegularExpressions;
 public partial class PlayerController : CharacterBody3D
 {
 	public const float Speed = 3.5f;
+	[Export]
 	public float health = 100f;
 	public float max_health = 100f;
-	public const float JumpVelocity = 13.0f;
+	public const float JumpVelocity = 10.0f;
 	public float death_line = -1000f;
 	private Camera3D camera;
 	private Node3D xBone;
 	private Node3D yBone;
 	private AnimationPlayer anims;
-	private AnimationTree anim3;
 	private AudioStreamPlayer wind;
+	private AudioStreamPlayer3D Emote;
 	private Node3D playerModel;
 	private Node3D PlrHead;
 	private RichTextLabel chat;
 	private LineEdit chatbox;
+	private EmoteClass Emote1;
 	public int windi = 0;
+	private int emote = 0;
 	public float min_zoom = 0.0f;
 	public float max_zoom = 45.0f;
 	public float zoom = 0.0f;
@@ -28,9 +31,10 @@ public partial class PlayerController : CharacterBody3D
 	public int inUI = 0;
 	private int jumps = 0;
 	private string nc = "#000";
-	private string Name = "AlexXD";
+	private string Name = "Retrometer";
 	// UI scenes
 	private Panel chatScene;
+	private Panel emoteScene;
 	private ProgressBar Health_Bar;
 	
 	private float targetRotationY;
@@ -44,28 +48,18 @@ public partial class PlayerController : CharacterBody3D
 			GD.Print("String must be at least 3 characters long.");
 			return new Color(0, 0, 0); // Return black if the string is too short
 		}
-
 		// Ensure all letters are in uppercase
 		input = input.ToUpper();
-
 		// Get alphabet index (0-25)
 		int GetAlphabetIndex(char c) => c - 'A';
-
 		// Calculate R, G, B based on the string
 		int len = input.Length;
-		int firstIndex = GetAlphabetIndex(input[0]);
-		int middleIndex = GetAlphabetIndex(input[len / 2]);
-		int lastIndex = GetAlphabetIndex(input[len - 1]);
-
-		// Calculate RGB values
-		float r = (float)(firstIndex / 26.0) * 255.0f;
-		float g = (float)(middleIndex / 26.0) * 255.0f;
-		float b = (float)(lastIndex  / 26.0) * 255.0f;
-
-		// Clamp the values to ensure they are between 0 and 255
-		r = Mathf.Clamp(r-(len/3.14f), 0, 255);
-		g = Mathf.Clamp(g+(len/3.14f), 0, 255);
-		b = Mathf.Clamp(b, 0, 255);
+		int rl = GetAlphabetIndex(input[0]);
+		int bl = GetAlphabetIndex(input[len / 2]);
+		int gl = GetAlphabetIndex(input[len - 1]);
+		byte r = (byte)(len * (23.5+(rl*13)) % 256);
+		byte g = (byte)(len * (23.5+(gl*13)) % 256);
+		byte b = (byte)(len * (23.5+(bl*13)) % 256);
 
 		return new Color(r / 255.0f, g / 255.0f, b / 255.0f);
 	}
@@ -144,21 +138,38 @@ public partial class PlayerController : CharacterBody3D
 		xBone = GetNode<Node3D>("x");
 		yBone = GetNode<Node3D>("x/y");
 		wind = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+		Emote = GetNode<AudioStreamPlayer3D>("Model/Middle/ROOT/T/EmoteSFX");
 		Input.SetCustomMouseCursor((Texture2D)GD.Load("res://cursors/finger.png"), Input.CursorShape.PointingHand, new Vector2(5,0));
 		playerModel = GetNode<Node3D>("Model");
 		anims = GetNode<AnimationPlayer>("AnimationPlayer");
-		anim3 = GetNode<AnimationTree>("AnimationTree");
-		PlrHead = GetNode<Node3D>("Model/ROOT/H");
+		PlrHead = GetNode<Node3D>("Model/Middle/ROOT/H");
 		chatScene = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<Panel>("Chat");
+		emoteScene = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<Panel>("Emote");
 		Health_Bar = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<ProgressBar>("Health");
 		chat = chatScene.GetNode<RichTextLabel>("Text");
 		chatbox = chatScene.GetNode<LineEdit>("LineEdit");
-
+		Emote1 = emoteScene.GetNode<EmoteClass>("Name/Emote");
+		Emote1.GetNode<AnimatedSprite2D>("Animation").Play();
 		if (chatbox != null)
 		{
 			chatbox.Connect("text_submitted", new Callable(this, nameof(_on_line_edit_text_submitted)));
 			chatbox.Connect("focus_entered", new Callable(this, nameof(_on_focus_entered)));
 			chatbox.Connect("focus_exited", new Callable(this, nameof(_on_focus_exited)));
+		}
+		if (Emote1 != null)
+		{
+			Emote1.Pressed += () => StartEmoting(Emote1);
+		}
+	}
+	private void StartEmoting(EmoteClass EmoteButton)
+	{
+		emoteScene.Visible = false;
+		emote = 1;
+		anims.Play(EmoteButton.Name);
+		if (EmoteButton.Music)
+		{
+			Emote.Stream = ResourceLoader.Load<AudioStream>($"res://assets/sfx/dances/{EmoteButton.Name}.mp3");
+			Emote.Play();
 		}
 	}
 	
@@ -233,6 +244,8 @@ public partial class PlayerController : CharacterBody3D
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta*3.0f;
+			emote = 0;
+			Emote.Stop();
 			anims.Play("jump");
 			//GD.Print(velocity.Y);
 			if (velocity.Y <= -180f)
@@ -274,6 +287,8 @@ public partial class PlayerController : CharacterBody3D
 				{
 					velocity.Y = JumpVelocity*1.5f;
 					jumps = 0;
+					emote = 0;
+					Emote.Stop();
 					anims.Play("double_jump");
 					//GD.Print(jumps);
 				}
@@ -296,8 +311,13 @@ public partial class PlayerController : CharacterBody3D
 			direction = Vector3.Zero;
 			inputDir = Vector2.Zero;
 		}
-		velocity.X += direction.X * Speed;
-		velocity.Z += direction.Z * Speed;
+		if (emote == 0){
+			velocity.X += direction.X * Speed;
+			velocity.Z += direction.Z * Speed;
+		} else {
+			velocity.X += direction.X * (Speed / 2.2f);
+			velocity.Z += direction.Z * (Speed / 2.2f);
+		}
 		velocity.X *= 0.75f;
 		velocity.Z *= 0.75f;
 		Velocity = velocity;
@@ -319,22 +339,24 @@ public partial class PlayerController : CharacterBody3D
 		} else {
 			playerModel.Visible = true;
 		}
-		if (inputDir != Vector2.Zero && anims.CurrentAnimation != "walk" && IsOnFloor())
+		if (inputDir != Vector2.Zero && anims.CurrentAnimation != "walk" && IsOnFloor() && emote == 0)
 		{
 			anims.Play("walk");
-		} else if (inputDir == Vector2.Zero && IsOnFloor())
+		} else if (inputDir == Vector2.Zero && IsOnFloor() && emote == 0)
 		{
 			anims.Play("idle");
-		} else if (!IsOnFloor())
-		{
-			//anims.Play("jump");
 		}
 		
 		// Smoothly interpolate the rotation
 		if (rotationElapsed < rotationTime)
 		{
 			rotationElapsed += (float)delta;
-			float t = Mathf.Clamp(rotationElapsed / rotationTime, 0, 1);
+			float t;
+			if (emote == 0) {
+				t = Mathf.Clamp(rotationElapsed / rotationTime, 0, 1);
+			} else {
+				t = Mathf.Clamp(rotationElapsed / 0.5f, 0, 1);
+			}
 			float smoothRotation = Mathf.LerpAngle(playerModel.Rotation.Y, targetRotationY, t);
 			playerModel.Rotation = new Vector3(playerModel.Rotation.X, smoothRotation, playerModel.Rotation.Z);
 		}
@@ -354,6 +376,14 @@ public partial class PlayerController : CharacterBody3D
 		}
 		Health_Bar.Value = health;
 		//GD.Print(inUI);
+		if (Input.IsActionJustPressed("Emote") && inUI == 0)
+		{
+			emoteScene.Visible = true;
+		}
+		if (Input.IsActionJustReleased("Emote") && inUI == 0)
+		{
+			emoteScene.Visible = false;
+		}
 		MoveAndSlide();
 	}
 }
