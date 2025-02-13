@@ -22,6 +22,7 @@ public partial class PlayerController : CharacterBody3D
 	private RichTextLabel chat;
 	private LineEdit chatbox;
 	private EmoteClass Emote1;
+	private EmoteClass Emote2;
 	public int windi = 0;
 	private int emote = 0;
 	public float min_zoom = 0.0f;
@@ -31,7 +32,7 @@ public partial class PlayerController : CharacterBody3D
 	public int inUI = 0;
 	private int jumps = 0;
 	private string nc = "#000";
-	private string Name = "Retrometer";
+	private string Name = "Voxopolis";
 	// UI scenes
 	private Panel chatScene;
 	private Panel emoteScene;
@@ -149,7 +150,7 @@ public partial class PlayerController : CharacterBody3D
 		chat = chatScene.GetNode<RichTextLabel>("Text");
 		chatbox = chatScene.GetNode<LineEdit>("LineEdit");
 		Emote1 = emoteScene.GetNode<EmoteClass>("Name/Emote");
-		Emote1.GetNode<AnimatedSprite2D>("Animation").Play();
+		Emote2 = emoteScene.GetNode<EmoteClass>("Name2/Emote");
 		if (chatbox != null)
 		{
 			chatbox.Connect("text_submitted", new Callable(this, nameof(_on_line_edit_text_submitted)));
@@ -159,10 +160,13 @@ public partial class PlayerController : CharacterBody3D
 		if (Emote1 != null)
 		{
 			Emote1.Pressed += () => StartEmoting(Emote1);
+			Emote2.Pressed += () => StartEmoting(Emote2);
 		}
 	}
 	private void StartEmoting(EmoteClass EmoteButton)
 	{
+		Emote.Stop();
+		anims.Stop();
 		emoteScene.Visible = false;
 		emote = 1;
 		anims.Play(EmoteButton.Name);
@@ -379,10 +383,14 @@ public partial class PlayerController : CharacterBody3D
 		if (Input.IsActionJustPressed("Emote") && inUI == 0)
 		{
 			emoteScene.Visible = true;
+			Emote1.GetNode<AnimatedSprite2D>("Animation").Play();
+			Emote2.GetNode<AnimatedSprite2D>("Animation").Play();
 		}
 		if (Input.IsActionJustReleased("Emote") && inUI == 0)
 		{
 			emoteScene.Visible = false;
+			Emote1.GetNode<AnimatedSprite2D>("Animation").Stop();
+			Emote2.GetNode<AnimatedSprite2D>("Animation").Stop();
 		}
 		MoveAndSlide();
 	}

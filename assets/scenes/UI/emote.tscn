@@ -1,40 +1,74 @@
-[gd_scene load_steps=61 format=3 uid="uid://8yxaauyck80c"]
+[gd_scene load_steps=96 format=3 uid="uid://8yxaauyck80c"]
 
 [ext_resource type="Script" path="res://assets/scripts/EmoteClass.cs" id="1_3xkqs"]
 [ext_resource type="Texture2D" uid="uid://m2h70rfcmydq" path="res://assets/dancesvisuals/Kazotsky/0001.png" id="1_yfhj5"]
+[ext_resource type="Texture2D" uid="uid://cp2wikc7dstmt" path="res://assets/dancesvisuals/Rat Dance/0001.png" id="2_7c4st"]
 [ext_resource type="Texture2D" uid="uid://dd13eq3rxsn7r" path="res://assets/dancesvisuals/Kazotsky/0002.png" id="2_uxieh"]
 [ext_resource type="Texture2D" uid="uid://da2h5lm1eb6ja" path="res://assets/dancesvisuals/Kazotsky/0003.png" id="3_3ladp"]
+[ext_resource type="Texture2D" uid="uid://ng754a76q24m" path="res://assets/dancesvisuals/Rat Dance/0002.png" id="3_d72w2"]
 [ext_resource type="Texture2D" uid="uid://bx2xxfejb1ybc" path="res://assets/dancesvisuals/Kazotsky/0004.png" id="4_8evgm"]
+[ext_resource type="Texture2D" uid="uid://bxp3g71tmsvua" path="res://assets/dancesvisuals/Rat Dance/0003.png" id="4_s7kn7"]
+[ext_resource type="Texture2D" uid="uid://bcsjb4yk5nm2a" path="res://assets/dancesvisuals/Rat Dance/0004.png" id="5_q8ykt"]
 [ext_resource type="Texture2D" uid="uid://2s6l18xwmgye" path="res://assets/dancesvisuals/Kazotsky/0005.png" id="5_slsr5"]
+[ext_resource type="Texture2D" uid="uid://chybjgua0ck6x" path="res://assets/dancesvisuals/Rat Dance/0005.png" id="6_6q8wd"]
 [ext_resource type="Texture2D" uid="uid://dpqjysr4uf5yq" path="res://assets/dancesvisuals/Kazotsky/0006.png" id="6_tc6j2"]
+[ext_resource type="Texture2D" uid="uid://dfsgimp5tm5m0" path="res://assets/dancesvisuals/Rat Dance/0006.png" id="7_2j3lu"]
 [ext_resource type="Texture2D" uid="uid://bx0y04h2d2tbr" path="res://assets/dancesvisuals/Kazotsky/0007.png" id="7_whp2r"]
+[ext_resource type="Texture2D" uid="uid://b0nwfgpn660jl" path="res://assets/dancesvisuals/Rat Dance/0007.png" id="8_bduop"]
 [ext_resource type="Texture2D" uid="uid://dst2daiav8hfe" path="res://assets/dancesvisuals/Kazotsky/0008.png" id="8_rhofb"]
 [ext_resource type="Texture2D" uid="uid://biubb7151xryb" path="res://assets/dancesvisuals/Kazotsky/0009.png" id="9_oq1vr"]
+[ext_resource type="Texture2D" uid="uid://tie7g2rxp6xi" path="res://assets/dancesvisuals/Rat Dance/0008.png" id="9_vd407"]
+[ext_resource type="Texture2D" uid="uid://c5ctoeih1woe" path="res://assets/dancesvisuals/Rat Dance/0009.png" id="10_7pomy"]
 [ext_resource type="Texture2D" uid="uid://mihkdcgbk4hu" path="res://assets/dancesvisuals/Kazotsky/0010.png" id="10_mfxxh"]
 [ext_resource type="Texture2D" uid="uid://bvwohvnyvag2m" path="res://assets/dancesvisuals/Kazotsky/0011.png" id="11_k2425"]
+[ext_resource type="Texture2D" uid="uid://xwrux6s145yy" path="res://assets/dancesvisuals/Rat Dance/0010.png" id="11_yecrr"]
 [ext_resource type="Texture2D" uid="uid://b64on8kvuu7xw" path="res://assets/dancesvisuals/Kazotsky/0012.png" id="12_06t78"]
+[ext_resource type="Texture2D" uid="uid://64uum30pvxrc" path="res://assets/dancesvisuals/Rat Dance/0011.png" id="12_kp7gx"]
+[ext_resource type="Texture2D" uid="uid://bda3wbdftpkd5" path="res://assets/dancesvisuals/Rat Dance/0012.png" id="13_lsf7n"]
 [ext_resource type="Texture2D" uid="uid://d3q3xeimwnqeb" path="res://assets/dancesvisuals/Kazotsky/0013.png" id="13_t2yi2"]
 [ext_resource type="Texture2D" uid="uid://cmnqvk8ykgndf" path="res://assets/dancesvisuals/Kazotsky/0014.png" id="14_brpbk"]
+[ext_resource type="Texture2D" uid="uid://du66vdb71dbpt" path="res://assets/dancesvisuals/Rat Dance/0013.png" id="14_y1wyb"]
 [ext_resource type="Texture2D" uid="uid://48yt5g4t4npf" path="res://assets/dancesvisuals/Kazotsky/0015.png" id="15_5e18q"]
+[ext_resource type="Texture2D" uid="uid://btk1alv6as6tq" path="res://assets/dancesvisuals/Rat Dance/0014.png" id="15_lo8k5"]
 [ext_resource type="Texture2D" uid="uid://i74j47axjitg" path="res://assets/dancesvisuals/Kazotsky/0016.png" id="16_2ae3x"]
+[ext_resource type="Texture2D" uid="uid://ctky66vuohh67" path="res://assets/dancesvisuals/Rat Dance/0015.png" id="16_j5fgw"]
 [ext_resource type="Texture2D" uid="uid://bc35dyb6yt1jk" path="res://assets/dancesvisuals/Kazotsky/0017.png" id="17_3et8f"]
+[ext_resource type="Texture2D" uid="uid://d1osswgr4rwns" path="res://assets/dancesvisuals/Rat Dance/0016.png" id="17_ag0k3"]
+[ext_resource type="Texture2D" uid="uid://dnikl7uab1snb" path="res://assets/dancesvisuals/Rat Dance/0017.png" id="18_asbsp"]
 [ext_resource type="Texture2D" uid="uid://ch0v58dta0tur" path="res://assets/dancesvisuals/Kazotsky/0018.png" id="18_i350s"]
+[ext_resource type="Texture2D" uid="uid://dmjdu5fqjstnl" path="res://assets/dancesvisuals/Rat Dance/0018.png" id="19_0dhv5"]
 [ext_resource type="Texture2D" uid="uid://dmeq086oakh3u" path="res://assets/dancesvisuals/Kazotsky/0019.png" id="19_3ccw4"]
 [ext_resource type="Texture2D" uid="uid://fhtgc6ylxv7d" path="res://assets/dancesvisuals/Kazotsky/0020.png" id="20_q4vdc"]
+[ext_resource type="Texture2D" uid="uid://cyb4ex4dhgi83" path="res://assets/dancesvisuals/Rat Dance/0019.png" id="20_r47xj"]
 [ext_resource type="Texture2D" uid="uid://b2omnbwvm3wl5" path="res://assets/dancesvisuals/Kazotsky/0021.png" id="21_equg2"]
+[ext_resource type="Texture2D" uid="uid://qtga1l0vkfrs" path="res://assets/dancesvisuals/Rat Dance/0020.png" id="21_ht4di"]
+[ext_resource type="Texture2D" uid="uid://brn8y65kmakj0" path="res://assets/dancesvisuals/Rat Dance/0021.png" id="22_ksbnb"]
 [ext_resource type="Texture2D" uid="uid://dk3h0ian3x5hm" path="res://assets/dancesvisuals/Kazotsky/0022.png" id="22_trn8f"]
 [ext_resource type="Texture2D" uid="uid://xkoky16avxu7" path="res://assets/dancesvisuals/Kazotsky/0023.png" id="23_j45ig"]
+[ext_resource type="Texture2D" uid="uid://eoxr76fsxauf" path="res://assets/dancesvisuals/Rat Dance/0022.png" id="23_ocr1m"]
+[ext_resource type="Texture2D" uid="uid://bsbwy06sl8yij" path="res://assets/dancesvisuals/Rat Dance/0023.png" id="24_dl6ym"]
 [ext_resource type="Texture2D" uid="uid://bqwayid3a5144" path="res://assets/dancesvisuals/Kazotsky/0024.png" id="24_veix4"]
+[ext_resource type="Texture2D" uid="uid://cf26uth8g1q4b" path="res://assets/dancesvisuals/Rat Dance/0024.png" id="25_l3p1a"]
 [ext_resource type="Texture2D" uid="uid://cbkaeipmkxene" path="res://assets/dancesvisuals/Kazotsky/0025.png" id="25_rwxe1"]
 [ext_resource type="Texture2D" uid="uid://dl3l6mrk48b5r" path="res://assets/dancesvisuals/Kazotsky/0026.png" id="26_6hm5e"]
+[ext_resource type="Texture2D" uid="uid://d2jnw4ard3qbe" path="res://assets/dancesvisuals/Rat Dance/0025.png" id="26_wew7u"]
 [ext_resource type="Texture2D" uid="uid://bpqp2drqnatx7" path="res://assets/dancesvisuals/Kazotsky/0027.png" id="27_4ag7m"]
+[ext_resource type="Texture2D" uid="uid://d3x7gewif6vj1" path="res://assets/dancesvisuals/Rat Dance/0026.png" id="27_eijtw"]
 [ext_resource type="Texture2D" uid="uid://dso4jd1aka4lh" path="res://assets/dancesvisuals/Kazotsky/0028.png" id="28_bm7nq"]
+[ext_resource type="Texture2D" uid="uid://f0dwh5p54tdm" path="res://assets/dancesvisuals/Rat Dance/0027.png" id="28_ucj2q"]
+[ext_resource type="Texture2D" uid="uid://b7ck5t8yqla2m" path="res://assets/dancesvisuals/Rat Dance/0028.png" id="29_7tch3"]
 [ext_resource type="Texture2D" uid="uid://dj846l4b3tuwu" path="res://assets/dancesvisuals/Kazotsky/0029.png" id="29_m7xrr"]
 [ext_resource type="Texture2D" uid="uid://74vpabhlptpr" path="res://assets/dancesvisuals/Kazotsky/0030.png" id="30_8t8hm"]
+[ext_resource type="Texture2D" uid="uid://cdbbrfmy4vdwn" path="res://assets/dancesvisuals/Rat Dance/0029.png" id="30_utl0j"]
+[ext_resource type="Texture2D" uid="uid://cajamtk148q41" path="res://assets/dancesvisuals/Rat Dance/0030.png" id="31_24s2n"]
 [ext_resource type="Texture2D" uid="uid://boi7q42ixeg78" path="res://assets/dancesvisuals/Kazotsky/0031.png" id="31_kv8ba"]
+[ext_resource type="Texture2D" uid="uid://ba74n8l5ggkek" path="res://assets/dancesvisuals/Rat Dance/0031.png" id="32_mhlfq"]
 [ext_resource type="Texture2D" uid="uid://duinrqapccaju" path="res://assets/dancesvisuals/Kazotsky/0032.png" id="32_t2apf"]
 [ext_resource type="Texture2D" uid="uid://bkvgrqj1h6243" path="res://assets/dancesvisuals/Kazotsky/0033.png" id="33_8t8pj"]
+[ext_resource type="Texture2D" uid="uid://ciww81mqmr0qt" path="res://assets/dancesvisuals/Rat Dance/0032.png" id="33_dhltw"]
 [ext_resource type="Texture2D" uid="uid://g8ujvr04d534" path="res://assets/dancesvisuals/Kazotsky/0034.png" id="34_gfyuq"]
+[ext_resource type="Texture2D" uid="uid://bmlktgonxnc34" path="res://assets/dancesvisuals/Rat Dance/0033.png" id="34_qxp35"]
+[ext_resource type="Texture2D" uid="uid://k2wqs7elbxqa" path="res://assets/dancesvisuals/Rat Dance/0034.png" id="35_rprux"]
 [ext_resource type="Texture2D" uid="uid://cj2bkugvde2v5" path="res://assets/dancesvisuals/Kazotsky/0035.png" id="35_yy53a"]
 [ext_resource type="Texture2D" uid="uid://dfvaxhk4f6m1l" path="res://assets/dancesvisuals/Kazotsky/0036.png" id="36_fachl"]
 [ext_resource type="Texture2D" uid="uid://ctq1e3av7txm4" path="res://assets/dancesvisuals/Kazotsky/0037.png" id="37_7e3p4"]
@@ -255,6 +289,116 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7ju3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7c4st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d72w2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s7kn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q8ykt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6q8wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2j3lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bduop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vd407")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7pomy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yecrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kp7gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lsf7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y1wyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lo8k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j5fgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ag0k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_asbsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0dhv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r47xj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ht4di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ksbnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ocr1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dl6ym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_l3p1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_wew7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_eijtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ucj2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7tch3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_utl0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_24s2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_mhlfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dhltw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_qxp35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rprux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
 [node name="Panel" type="Panel"]
 anchors_preset = -1
 anchor_left = 0.194
@@ -280,6 +424,7 @@ offset_top = -91.9
 offset_right = 44.94
 offset_bottom = -85.06
 text = "Kazotsky Kick"
+horizontal_alignment = 1
 
 [node name="Emote" type="Button" parent="Name"]
 clip_children = 2
@@ -310,10 +455,60 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dnwa4")
 script = ExtResource("1_3xkqs")
 Name = "Kazotsky"
 Music = true
-Loop = true
 
 [node name="Animation" type="AnimatedSprite2D" parent="Name/Emote"]
 position = Vector2(47.5, 48)
 scale = Vector2(0.087963, 0.0888889)
 sprite_frames = SubResource("SpriteFrames_fk3cf")
-frame_progress = 0.288687
+frame_progress = 0.867354
+
+[node name="Name2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.475
+anchor_right = 0.515
+anchor_bottom = 0.515
+offset_left = 105.1
+offset_top = 52.1
+offset_right = 193.94
+offset_bottom = 58.94
+text = "Rat Dance"
+horizontal_alignment = 1
+
+[node name="Emote" type="Button" parent="Name2"]
+clip_children = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048
+anchor_top = -4.087
+anchor_right = 0.952
+anchor_bottom = 0.087
+offset_left = -0.04
+offset_top = 0.00101471
+offset_right = 0.0399857
+offset_bottom = -0.00100017
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_dnwa4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dnwa4")
+script = ExtResource("1_3xkqs")
+Name = "RatDance"
+Music = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="Name2/Emote"]
+position = Vector2(47.5, 48)
+scale = Vector2(0.087963, 0.0888889)
+sprite_frames = SubResource("SpriteFrames_e7ju3")
+frame = 26
+frame_progress = 0.717193
