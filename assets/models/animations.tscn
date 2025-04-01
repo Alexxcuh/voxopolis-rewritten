@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=4 uid="uid://cyys8piee3k8q"]
 
-[ext_resource type="Texture2D" uid="uid://4qj3thtitnwx" path="res://assets/models/textures/Untitled.png" id="1_pvcq3"]
-[ext_resource type="Script" path="res://assets/models/Animations.cs" id="1_yh8em"]
-[ext_resource type="AudioStream" uid="uid://dlrqpa0imtqqy" path="res://assets/sfx/dances/Kazotsky.mp3" id="3_tmgkw"]
+[ext_resource type="Texture2D" uid="uid://bkokxawcydrwj" path="res://assets/models/textures/Untitled.png" id="1_pvcq3"]
+[ext_resource type="Script" uid="uid://c7ainvswyoi6t" path="res://assets/models/Animations.cs" id="1_yh8em"]
+[ext_resource type="AudioStream" uid="uid://dbo10mbqwngm5" path="res://assets/sfx/dances/Kazotsky.mp3" id="3_tmgkw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqeip"]
 resource_name = "Material.008"
@@ -323,7 +323,7 @@ tracks/10/keys = PackedFloat32Array(0, 1, 0, 2.5, 0.5, 0.0333333, 1, 0, 2.5, 0.5
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qu6da"]
 _data = {
-"Kazotsky": SubResource("Animation_t2plh")
+&"Kazotsky": SubResource("Animation_t2plh")
 }
 
 [node name="untitled" type="Node3D"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlo6qnxn0fvux"]
 
-[ext_resource type="Script" path="res://assets/scripts/DayNight.cs" id="1_lrdoq"]
-[ext_resource type="Shader" path="res://assets/shaders/sky.gdshader" id="2_1qykd"]
+[ext_resource type="Script" uid="uid://bxxxnvrdosjd" path="res://assets/scripts/SceneManager.cs" id="1_lrdoq"]
+[ext_resource type="Shader" uid="uid://dphbkibykxnfh" path="res://assets/shaders/sky.gdshader" id="2_1qykd"]
 [ext_resource type="PackedScene" uid="uid://bxkwa81nu32hm" path="res://assets/scenes/Player.tscn" id="3_5us51"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vrhta"]
@@ -23,12 +23,12 @@ noise = SubResource("FastNoiseLite_ntrn4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r5hb2"]
 shader = ExtResource("2_1qykd")
-shader_parameter/day_top_color = Color(0.4472, 0.7568, 0.86, 1)
-shader_parameter/day_bottom_color = Color(0.447059, 0.756863, 0.858824, 1)
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
-shader_parameter/night_top_color = Color(0.19525, 0.0675, 0.25, 1)
-shader_parameter/night_bottom_color = Color(0.0114168, 1.25381e-05, 0.0376784, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
 shader_parameter/horizon_color = Color(0, 0, 0, 1)
 shader_parameter/horizon_blur = 1.0
 shader_parameter/sun_color = Color(10, 8, 1, 1)
@@ -49,8 +49,8 @@ shader_parameter/clouds_cutoff = 0.48
 shader_parameter/clouds_fuzziness = 0.53
 shader_parameter/clouds_weight = 0.0
 shader_parameter/clouds_blur = 0.25
-shader_parameter/stars_speed = 1.25
 shader_parameter/stars_texture = SubResource("NoiseTexture2D_cx1lk")
+shader_parameter/stars_speed = 1.25
 shader_parameter/overwritten_time = 0.0
 
 [sub_resource type="Sky" id="Sky_gdf62"]
@@ -59,9 +59,14 @@ sky_material = SubResource("ShaderMaterial_r5hb2")
 [sub_resource type="Environment" id="Environment_j6426"]
 background_mode = 2
 sky = SubResource("Sky_gdf62")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 3.0
+reflected_light_source = 2
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_lrdoq")
+playerScene = ExtResource("3_5us51")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
@@ -92,11 +97,16 @@ environment = SubResource("Environment_j6426")
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("3_5us51")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.208527, 0.5, -7.42204)
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.5, 10, 1)
 light_energy = 5.0
 spot_range = 155.625
 spot_angle_attenuation = 3.13834
+
+[node name="PlayerSpawnPoints" type="Node3D" parent="."]
+
+[node name="0" type="Node3D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.98724, 3.65221, 0)
+
+[node name="1" type="Node3D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90435, 3.47842, 0)

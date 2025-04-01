@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0dgpm7s8s2wi"]
 
-[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_hu446"]
+[ext_resource type="FontFile" uid="uid://ckahdm1qjrapi" path="res://fonts/Fonts/Fredoka.ttf" id="1_hu446"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt4v4"]
 bg_color = Color(0.048, 0.48, 0.1416, 1)

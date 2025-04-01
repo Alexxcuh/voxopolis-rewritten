@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dq616m07udorg"]
 
-[ext_resource type="Texture2D" uid="uid://fpch1mnd73nt" path="res://cursors/lock.png" id="1_aqsdj"]
+[ext_resource type="Texture2D" uid="uid://mmyt482pb3kr" path="res://cursors/lock.png" id="1_aqsdj"]
 [ext_resource type="PackedScene" uid="uid://cpcf48ebw7sgv" path="res://assets/scenes/UI/chat.tscn" id="2_26jhu"]
 [ext_resource type="PackedScene" uid="uid://d0dgpm7s8s2wi" path="res://assets/scenes/UI/health.tscn" id="3_fpbhv"]
 [ext_resource type="Theme" uid="uid://c2kchxms4jra" path="res://assets/voxopolis_theme.tres" id="3_o0h0l"]

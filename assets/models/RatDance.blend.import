@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://boah5ebwannpg"
+uid="uid://dqea7iwcil74s"
 path="res://.godot/imported/RatDance.blend-cecd61972057c22120ba36109e97c3a3.scn"
 
 [deps]
@@ -18,6 +18,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -41,6 +42,7 @@ blender/nodes/modifiers=1
 blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
 blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false

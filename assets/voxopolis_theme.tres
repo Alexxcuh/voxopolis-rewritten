@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=15 format=3 uid="uid://c2kchxms4jra"]
 
-[ext_resource type="FontFile" uid="uid://cow8m07piutd5" path="res://fonts/Fonts/Fredoka.ttf" id="1_g6u6j"]
+[ext_resource type="FontFile" uid="uid://ckahdm1qjrapi" path="res://fonts/Fonts/Fredoka.ttf" id="1_g6u6j"]
 [ext_resource type="FontVariation" uid="uid://7y0heevchlo1" path="res://fonts/Fonts/FontVariation/Bold.tres" id="2_u2i30"]
 [ext_resource type="FontVariation" uid="uid://c60mjf2s87ncc" path="res://fonts/Fonts/FontVariation/BoldItalics.tres" id="3_ybxc8"]
 [ext_resource type="FontVariation" uid="uid://bqmsjchh08j4e" path="res://fonts/Fonts/FontVariation/Italics.tres" id="4_b2c5u"]

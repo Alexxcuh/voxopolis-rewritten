@@ -12,10 +12,14 @@ config_version=5
 
 config/name="Voxopolis-rewritten"
 config/tags=PackedStringArray("voxopolis")
-run/main_scene="res://assets/scenes/TestWorld.tscn"
-config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+run/main_scene="uid://g3p2eokrken2"
+config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://assets/icon.svg"
+
+[autoload]
+
+GameManager="*res://assets/scripts/GameManager.cs"
 
 [display]
 
@@ -25,6 +29,11 @@ mouse_cursor/custom_image_hotspot=Vector2(5, 0)
 [dotnet]
 
 project/assembly_name="Voxopolis-rewritten"
+
+[global_group]
+
+PlayerSpawnPoints=""
+Player=""
 
 [input]
 
@@ -382,8 +391,8 @@ Emote={
 [rendering]
 
 driver/threads/thread_model=2
-occlusion_culling/occlusion_rays_per_thread=402
 anti_aliasing/quality/msaa_3d=1
+occlusion_culling/occlusion_rays_per_thread=402
 occlusion_culling/use_occlusion_culling=true
 
 [shader_globals]
