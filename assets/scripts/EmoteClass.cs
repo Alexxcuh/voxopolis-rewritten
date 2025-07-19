@@ -7,4 +7,5 @@ public partial class EmoteClass : Button
 	public string Name = "Example";
 	[Export]
 	public bool Music = false;
+    [Export] public AnimatedSprite2D Animation;
 }

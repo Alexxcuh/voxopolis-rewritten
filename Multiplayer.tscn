@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dpkrf")
-port = 25565
+port = 55000
 
 [node name="Host" type="Button" parent="."]
 layout_mode = 0

@@ -426,7 +426,7 @@ offset_bottom = -85.06
 text = "Kazotsky Kick"
 horizontal_alignment = 1
 
-[node name="Emote" type="Button" parent="Name"]
+[node name="Emote" type="Button" parent="Name" node_paths=PackedStringArray("Animation")]
 clip_children = 2
 clip_contents = true
 layout_mode = 1
@@ -455,6 +455,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dnwa4")
 script = ExtResource("1_3xkqs")
 Name = "Kazotsky"
 Music = true
+Animation = NodePath("Animation")
 
 [node name="Animation" type="AnimatedSprite2D" parent="Name/Emote"]
 position = Vector2(47.5, 48)
@@ -476,7 +477,7 @@ offset_bottom = 58.94
 text = "Rat Dance"
 horizontal_alignment = 1
 
-[node name="Emote" type="Button" parent="Name2"]
+[node name="Emote" type="Button" parent="Name2" node_paths=PackedStringArray("Animation")]
 clip_children = 2
 clip_contents = true
 layout_mode = 1
@@ -505,6 +506,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dnwa4")
 script = ExtResource("1_3xkqs")
 Name = "RatDance"
 Music = true
+Animation = NodePath("Animation")
 
 [node name="Animation" type="AnimatedSprite2D" parent="Name2/Emote"]
 position = Vector2(47.5, 48)

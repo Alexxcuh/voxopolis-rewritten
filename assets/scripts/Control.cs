@@ -57,18 +57,18 @@ public partial class Control : Godot.Control
 		GD.Print("Player Connected: " + id.ToString());
 	}
 
-
-	private void hostGame(){
+	private void hostGame()
+	{
 		peer = new ENetMultiplayerPeer();
-		var error = peer.CreateServer(port, max_clients);
-		if (error != Error.Ok){
-			GD.Print("ERROR CANNOT HOST :"+ error.ToString());
+		Error error = peer.CreateServer(port, max_clients);
+		if (error != Error.Ok)
+		{
+			GD.PrintErr("ERROR: Cannot host. Error code: " + error);
 			return;
 		}
 		peer.Host.Compress(ENetConnection.CompressionMode.RangeCoder);
-		
 		Multiplayer.MultiplayerPeer = peer;
-		GD.Print("Waiting For Players!");
+		GD.Print($"Server hosting on port {port} for up to {max_clients} players.");
 	}
 
 	public void _on_host_button_down()
@@ -100,7 +100,6 @@ public partial class Control : Godot.Control
 		GetTree().Root.AddChild(scene);
 		this.Hide();
 	}
-
 	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
 	private void sendPlayerInformation(string name, int id){
 		PlayerInfo playerInfo = new PlayerInfo(){

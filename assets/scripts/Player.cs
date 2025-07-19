@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -70,47 +69,6 @@ public partial class Player : CharacterBody3D
 	{
 		return $"{(int)(color.R * 255):X2}{(int)(color.G * 255):X2}{(int)(color.B * 255):X2}";
 	}
-	public static string CloseUnclosedBBTags(string message)
-	{
-		// Regex to match opening and valid closing BBCode tags
-		Regex tagRegex = new Regex(@"\[(/?)(\w+)(=[^\]]+)?\]");
-		
-		// Stack to keep track of unclosed tags
-		Stack<string> tagStack = new Stack<string>();
-
-		// Match all BBCode tags in the message
-		var matches = tagRegex.Matches(message);
-
-		// Iterate over all matches
-		foreach (Match match in matches)
-		{
-			bool isClosingTag = match.Groups[1].Value == "/"; // Check if it's a closing tag
-			string tagName = match.Groups[2].Value; // Extract tag name
-
-			if (isClosingTag) // If it's a closing tag
-			{
-				if (tagStack.Count > 0 && tagStack.Peek() == tagName)
-				{
-					tagStack.Pop(); // Properly close the tag by removing it from the stack
-				}
-				// Else: Ignore invalid closing tags (e.g., mismatched or malformed)
-			}
-			else // It's an opening tag
-			{
-				tagStack.Push(tagName);
-			}
-		}
-
-		// Append unclosed tags to the message
-		while (tagStack.Count > 0)
-		{
-			string unclosedTag = tagStack.Pop();
-			message += $"[/{unclosedTag}]";
-		}
-
-		return message;
-	}
-
 	public override void _Input(InputEvent @event)
 	{
 		if(GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId()){
@@ -156,7 +114,7 @@ public partial class Player : CharacterBody3D
 		chat = chatScene.GetNode<RichTextLabel>("Text");
 		chatbox = chatScene.GetNode<LineEdit>("LineEdit");
 		Emote1 = emoteScene.GetNode<EmoteClass>("Name/Emote");
-		Emote2 = emoteScene.GetNode<EmoteClass>("Name/Emote");
+		Emote2 = emoteScene.GetNode<EmoteClass>("Name2/Emote");
 		if (chatbox != null)
 		{
 			chatbox.Connect("text_submitted", new Callable(this, nameof(_on_line_edit_text_submitted)));
@@ -193,7 +151,7 @@ public partial class Player : CharacterBody3D
 				chatbox.Text = "";
 				return;
 			}
-			Rpc("SendMessage");
+			RpcId(1,"SendMessage",new_text,Name,nc);
 			chatbox.Text = "";
 		} else {
 			chatbox.ReleaseFocus();
@@ -233,15 +191,15 @@ public partial class Player : CharacterBody3D
 			Vector3 velocity = Velocity;
 			if (Input.IsActionJustPressed("ZO") || Input.IsActionPressed("ZO1") && inUI == 0)
 			{
-				zoom += 0.5f;
-				if (zoom >= max_zoom)
+                zoom += 0.5f + (Input.IsActionJustPressed("ZO") ? 1f : 0f);
+                if (zoom >= max_zoom)
 				{
 					zoom = max_zoom;
 				}
 			}
 			if (Input.IsActionJustPressed("ZI") || Input.IsActionPressed("ZI1") && inUI == 0)
 			{
-				zoom -= 0.5f;
+				zoom -= 0.5f + (Input.IsActionJustPressed("ZI") ? 1f : 0f);
 				if (zoom <= min_zoom)
 				{
 					zoom = min_zoom;
@@ -389,14 +347,14 @@ public partial class Player : CharacterBody3D
 			if (Input.IsActionJustPressed("Emote") && inUI == 0)
 			{
 				emoteScene.Visible = true;
-				Emote1.GetNode<AnimatedSprite2D>("Animation").Play();
-				Emote2.GetNode<AnimatedSprite2D>("Animation").Play();
+				Emote1.Animation.Play();
+				Emote2.Animation.Play();
 			}
 			if (Input.IsActionJustReleased("Emote") && inUI == 0)
 			{
 				emoteScene.Visible = false;
-				Emote1.GetNode<AnimatedSprite2D>("Animation").Stop();
-				Emote2.GetNode<AnimatedSprite2D>("Animation").Stop();
+				Emote1.Animation.Stop();
+				Emote2.Animation.Stop();
 			}
 			MoveAndSlide();
 			syncPos = GlobalPosition;
@@ -412,14 +370,49 @@ public partial class Player : CharacterBody3D
 			GetNode<Node3D>("Model").GlobalRotation = GetNode<Node3D>("Model").GlobalRotation.Lerp(syncRot, .1f);
 		}
 	}
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-	public void SendMessage(){
-		GD.Print(Name);
-		GD.Print("E");
-		string blaa = CloseUnclosedBBTags("E");
-		chat.Text += $"[color={nc}]{Name}: [color=fff]{blaa}\n";
+	public static string CloseUnclosedBBTags(string message)
+	{
+		Regex tagRegex = new Regex(@"\[(/?)(\w+)(=[^\]]+)?\]");
+		Stack<string> tagStack = new Stack<string>();
+		var matches = tagRegex.Matches(message);
+		foreach (Match match in matches)
+		{
+			bool isClosingTag = match.Groups[1].Value == "/";
+			string tagName = match.Groups[2].Value;
+
+			if (isClosingTag)
+			{
+				if (tagStack.Count > 0 && tagStack.Peek() == tagName)
+				{
+					tagStack.Pop();
+				}
+			}
+			else
+			{
+				tagStack.Push(tagName);
+			}
+		}
+		while (tagStack.Count > 0)
+		{
+			string unclosedTag = tagStack.Pop();
+			message += $"[/{unclosedTag}]";
+		}
+
+		return message;
 	}
 
+    [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)] 
+    public void SendMessage(string message, string senderName, string color)
+    {
+        GD.Print($"[SERVER] {senderName} says: {message}");
+        Rpc(nameof(Player.ReceiveMessage), $"[color={color}]{senderName}: [color=fff]{CloseUnclosedBBTags(message)}\n");
+    }
+ 
+	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)] // Server sends this to all clients
+    public void ReceiveMessage(string message)
+    {
+		chat.Text += message;
+    }
 	public void SetUpPlayer(string name){
 		GetNode<Label3D>("Label").Text = name;
 	}

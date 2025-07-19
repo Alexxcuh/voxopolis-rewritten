@@ -1,11 +1,9 @@
 using Godot;
 using System;
-
 public partial class SceneManager : Node3D
 {
     [Export]
     private PackedScene playerScene;
-
     public override void _Ready()
     {
         int index = 0;
