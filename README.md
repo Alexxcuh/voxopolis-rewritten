@@ -4,3 +4,5 @@ Voxopolis Rewritten began with the goal of creating a better and more optimized 
 I'm sorry for leaving such an unfinished and half-baked project, but I've lost all the motivation and commitment I ever had for this project.
 
 Also, I did use some AI Assistance with some stuff, including the player controller, but not a big part of it, just the math behind rotating the player.
+
+Nearly forgot, but, the sky shader is not made by me, i got it from https://godotshaders.com/
