@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpcf48ebw7sgv"]
+[gd_scene load_steps=11 format=3 uid="uid://cpcf48ebw7sgv"]
 
 [ext_resource type="FontVariation" uid="uid://7y0heevchlo1" path="res://fonts/Fonts/FontVariation/Bold.tres" id="2_bjcev"]
 [ext_resource type="FontVariation" uid="uid://c60mjf2s87ncc" path="res://fonts/Fonts/FontVariation/BoldItalics.tres" id="3_4gl6b"]
 [ext_resource type="FontVariation" uid="uid://bqmsjchh08j4e" path="res://fonts/Fonts/FontVariation/Italics.tres" id="4_23utj"]
+[ext_resource type="Script" uid="uid://bkvfqnk1cx4tv" path="res://assets/scripts/Chat.cs" id="4_hw30w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dsr5"]
 content_margin_left = 10.0
@@ -73,7 +74,7 @@ RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_1n074")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_3b0j8")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_im63q")
 
-[node name="Chat" type="Panel"]
+[node name="Chat" type="Panel" node_paths=PackedStringArray("chat", "chatbox")]
 clip_contents = true
 anchors_preset = -1
 anchor_left = 0.007
@@ -85,6 +86,9 @@ offset_top = 0.224
 offset_right = 442.936
 offset_bottom = 246.224
 theme = SubResource("Theme_qft1i")
+script = ExtResource("4_hw30w")
+chat = NodePath("Text")
+chatbox = NodePath("LineEdit")
 
 [node name="Text" type="RichTextLabel" parent="."]
 clip_contents = false

@@ -4,7 +4,8 @@ using System.Text.RegularExpressions;
 
 public partial class Player : CharacterBody3D
 {
-	public const float Speed = 3.5f;
+    [Export] private PackedScene gui;
+    public const float Speed = 3.5f;
 	[Export]
 	public float health = 100f;
 	public float max_health = 100f;
@@ -33,8 +34,8 @@ public partial class Player : CharacterBody3D
 	private string nc = "#000";
 	// private string Name = "Voxopolis";
 	// UI scenes
-	private Panel chatScene;
-	private Panel emoteScene;
+	private Chat chatScene;
+	private Emote emoteScene;
 	private ProgressBar Health_Bar;
 
 	private float targetRotationY;
@@ -108,14 +109,15 @@ public partial class Player : CharacterBody3D
 		playerModel = GetNode<Node3D>("Model");
 		anims = GetNode<AnimationPlayer>("AnimationPlayer");
 		PlrHead = GetNode<Node3D>("Model/Middle/ROOT/H");
-		chatScene = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<Panel>("Chat");
-		emoteScene = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<Panel>("Emote");
-		Health_Bar = camera.GetNode<CanvasLayer>("CanvasLayer").GetNode<Button>("mewing").GetNode<ProgressBar>("Health");
-		chat = chatScene.GetNode<RichTextLabel>("Text");
-		chatbox = chatScene.GetNode<LineEdit>("LineEdit");
-		Emote1 = emoteScene.GetNode<EmoteClass>("Name/Emote");
-		Emote2 = emoteScene.GetNode<EmoteClass>("Name2/Emote");
-		if (chatbox != null)
+        //camera.AddChild(gui.Instantiate());
+        chatScene = camera.GetNode<GUI>("CanvasLayer").Chat;
+        emoteScene = camera.GetNode<GUI>("CanvasLayer").Emote;
+        Health_Bar = camera.GetNode<GUI>("CanvasLayer").Health;
+        chat = chatScene.chat;
+        chatbox = chatScene.chatbox;
+        Emote1 = emoteScene.Emote1;
+        Emote2 = emoteScene.Emote2;
+        if (chatbox != null)
 		{
 			chatbox.Connect("text_submitted", new Callable(this, nameof(_on_line_edit_text_submitted)));
 			chatbox.Connect("focus_entered", new Callable(this, nameof(_on_focus_entered)));
@@ -361,11 +363,6 @@ public partial class Player : CharacterBody3D
 			syncRot = GetNode<Node3D>("Model").GlobalRotation;
 			camera.Current = true;
 		} else{
-			CanvasLayer canvasLayer = camera.GetNodeOrNull<CanvasLayer>("CanvasLayer");
-			if (canvasLayer != null)
-			{
-				canvasLayer.QueueFree();
-			}
 			GlobalPosition = GlobalPosition.Lerp(syncPos, .1f);
 			GetNode<Node3D>("Model").GlobalRotation = GetNode<Node3D>("Model").GlobalRotation.Lerp(syncRot, .1f);
 		}
@@ -404,11 +401,14 @@ public partial class Player : CharacterBody3D
     [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)] 
     public void SendMessage(string message, string senderName, string color)
     {
-        GD.Print($"[SERVER] {senderName} says: {message}");
-        Rpc(nameof(Player.ReceiveMessage), $"[color={color}]{senderName}: [color=fff]{CloseUnclosedBBTags(message)}\n");
+        if (Multiplayer.IsServer())
+        {
+            GD.Print($"[SERVER] {senderName} says: {message}");
+            Rpc(nameof(ReceiveMessage), $"[color={color}]{senderName}: [color=fff]{CloseUnclosedBBTags(message)}\n");
+        }
     }
  
-	[Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)] // Server sends this to all clients
+	[Rpc]
     public void ReceiveMessage(string message)
     {
 		chat.Text += message;

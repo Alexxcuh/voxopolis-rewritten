@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dq616m07udorg"]
+[gd_scene load_steps=19 format=3 uid="uid://dq616m07udorg"]
 
 [ext_resource type="Texture2D" uid="uid://mmyt482pb3kr" path="res://cursors/lock.png" id="1_aqsdj"]
+[ext_resource type="Script" uid="uid://i0tl23wt3x2b" path="res://assets/scripts/GUI.cs" id="1_k7ydg"]
 [ext_resource type="PackedScene" uid="uid://cpcf48ebw7sgv" path="res://assets/scenes/UI/chat.tscn" id="2_26jhu"]
 [ext_resource type="PackedScene" uid="uid://d0dgpm7s8s2wi" path="res://assets/scenes/UI/health.tscn" id="3_fpbhv"]
 [ext_resource type="Theme" uid="uid://c2kchxms4jra" path="res://assets/voxopolis_theme.tres" id="3_o0h0l"]
@@ -29,7 +30,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ypri"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("Chat", "Emote", "Health")]
+script = ExtResource("1_k7ydg")
+Chat = NodePath("mewing/Chat")
+Emote = NodePath("mewing/Emote")
+Health = NodePath("mewing/Health")
 
 [node name="mewing" type="Button" parent="."]
 anchors_preset = -1
